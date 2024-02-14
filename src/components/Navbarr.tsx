@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { ShoppingCartProvider, useShoppingCart } from "../context/ShoppingCartContext";
 
 function Navbarr() {
+  const{ openCart,cartQuantity}=useShoppingCart()
   return (
     <Navbar sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -17,6 +20,7 @@ function Navbarr() {
           </Nav.Link>
         </Nav>
         <Button
+        onClick={openCart}
           style={{ width: "3rem", height: "3rem", position: "relative" }}
           variant="outline-primary"
           className="rounded-circle"
@@ -42,7 +46,7 @@ function Navbarr() {
               right: 0,
               transform: "transalate(25%,25%)",
             }}
-          ></div>
+          >{cartQuantity}</div>
         </Button>
       </Container>
     </Navbar>
