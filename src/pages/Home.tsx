@@ -1,12 +1,5 @@
-import Store from "./Store"
+import { Store } from "./Store";
 
-
-function Home() {
-  return (
-    <div>
-        <Store />
-    </div>
-  )
+export function Home() {
+  return <h1><Store/></h1>
 }
-
-export default Home
